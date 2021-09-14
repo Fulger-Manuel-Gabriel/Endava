@@ -4,7 +4,11 @@ namespace SchoolOf.Data.Models
 {
     public class Cart : BaseEntityModel
     {
-        public enum Status (Created; Completed);
-      
+        enum Status
+        {
+            Created,
+            Completed
+        }
+
     }
 }
