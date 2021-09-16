@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolOf.Data;
 
 namespace SchoolOf.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210913141124_AddedCartAndOrder")]
+    partial class AddedCartAndOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace SchoolOf.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("SchoolOf.Data.Models.Order", b =>
@@ -84,7 +86,7 @@ namespace SchoolOf.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("SchoolOf.Data.Models.Product", b =>
@@ -93,9 +95,6 @@ namespace SchoolOf.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long?>("CartId")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("Category")
                         .IsRequired()
@@ -129,8 +128,6 @@ namespace SchoolOf.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CartId");
 
                     b.ToTable("Products");
 
@@ -171,18 +168,6 @@ namespace SchoolOf.Data.Migrations
                             Name = "VW Golf 7",
                             Price = 19500m
                         });
-                });
-
-            modelBuilder.Entity("SchoolOf.Data.Models.Product", b =>
-                {
-                    b.HasOne("SchoolOf.Data.Models.Cart", null)
-                        .WithMany("Products")
-                        .HasForeignKey("CartId");
-                });
-
-            modelBuilder.Entity("SchoolOf.Data.Models.Cart", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

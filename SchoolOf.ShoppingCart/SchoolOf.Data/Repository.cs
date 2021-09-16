@@ -34,6 +34,19 @@ namespace SchoolOf.Data
             return this._dbSet.Where(searchCriteria).ToList();
         }
 
+        public IEnumerable<T> Find(Func<T, bool> searchCriteria, int skip, int take)
+        {
+            if(skip < 0)
+            {
+                throw new ArgumentException("Invalid skip argument.");
+            }
+            if(take < 1)
+            {
+                throw new ArgumentException("Invalid take argument.");
+            }
+            return this._dbSet.Where(searchCriteria).Skip(skip).Take(take).ToList();
+        }
+
         public async Task<T> GetByIdAsync(long id)
         {
             return await this._dbSet.FindAsync(id);

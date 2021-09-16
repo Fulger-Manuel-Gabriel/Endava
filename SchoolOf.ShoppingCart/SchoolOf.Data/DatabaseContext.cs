@@ -12,6 +12,7 @@ namespace SchoolOf.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Cart> Carts { get; set; }
 
         public DatabaseContext(IOptions<DbSettings> optionSettings)
         {
@@ -32,8 +33,6 @@ namespace SchoolOf.Data
             modelBuilder.Entity<Product>().Property(x => x.Image).IsRequired();
             modelBuilder.Entity<Product>().Property(x => x.Category).IsRequired().HasMaxLength(100);
 
-            modelBuilder.Entity<Product>().HasData(ProductInitialData.GetData());
-
             modelBuilder.Entity<Order>().HasKey(x => x.Id);
             modelBuilder.Entity<Order>().Property(x => x.Name).IsRequired().HasMaxLength(100);
             modelBuilder.Entity<Order>().Property(x => x.Adress).IsRequired().HasMaxLength(500);
@@ -41,8 +40,9 @@ namespace SchoolOf.Data
             modelBuilder.Entity<Order>().Property(x => x.PhoneNo).IsRequired().HasMaxLength(10);
             modelBuilder.Entity<Order>().Property(x => x.Total).IsRequired();
 
-            modelBuilder.Entity<Order>().HasData(OrderInitialData.GetData());
-        }
+            modelBuilder.Entity<Cart>().HasKey(x => x.Id);
 
+            modelBuilder.Entity<Product>().HasData(ProductInitialData.GetData());
+        }
     }
 }
