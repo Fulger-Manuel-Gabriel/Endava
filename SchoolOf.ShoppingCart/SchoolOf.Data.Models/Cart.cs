@@ -7,7 +7,10 @@ namespace SchoolOf.Data.Models
     public class Cart : BaseEntityModel
     {
         public CartStatus Status { get; set; }
+    }
 
+    public class ListProduct : BaseEntityModel
+    {
         public List<Product> Products { get; set; }
     }
 }
