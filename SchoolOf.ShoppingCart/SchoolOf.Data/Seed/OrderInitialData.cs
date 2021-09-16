@@ -17,7 +17,7 @@ namespace SchoolOf.Data.Seed
                     Adress = "Test Adress11111",
                     Total = 300,
                     Email = "TestEmail11111@gmail.com",
-                    PhoneNo = 1,
+                    PhoneNo = "0712345677",
                     CreatedAt = DateTimeOffset.UtcNow,
                     ModifiedAt = DateTimeOffset.UtcNow
                 },
@@ -27,7 +27,7 @@ namespace SchoolOf.Data.Seed
                     Adress = "Test Adress222222",
                     Total = 1000,
                     Email = "TestEmail222222@gmail.com",
-                    PhoneNo = 1,
+                    PhoneNo = "0712345678",
                     CreatedAt = DateTimeOffset.UtcNow,
                     ModifiedAt = DateTimeOffset.UtcNow
                 },
@@ -37,7 +37,7 @@ namespace SchoolOf.Data.Seed
                     Adress = "Test Adress33333333",
                     Total = 500,
                     Email = "TestEmail333333@gmail.com",
-                    PhoneNo = 1,
+                    PhoneNo = "0712345679",
                     CreatedAt = DateTimeOffset.UtcNow,
                     ModifiedAt = DateTimeOffset.UtcNow
                 }

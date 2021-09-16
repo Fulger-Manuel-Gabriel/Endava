@@ -7,7 +7,7 @@ namespace SchoolOf.Data.Models
         public string Name { get; set; }
         public string Adress { get; set; }
         public string Email { get; set; }
-        public int PhoneNo { get; set; }
+        public string PhoneNo { get; set; }
         public decimal Total { get; set; }
     }
 }
